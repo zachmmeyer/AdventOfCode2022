@@ -6,13 +6,11 @@ puzzle_input = File.open('./puzzle_input').read.split("\n")
 def find_duplicate_items_single_backpack(backpacks)
   duplicate_items = []
   backpacks.each do |backpack|
-    backpack_match_found = false
     divided_backpack = backpack.chars.each_slice(backpack.size / 2).to_a
     divided_backpack[0].each do |item|
       next unless divided_backpack[1].include?(item)
 
       duplicate_items.push(item)
-      backpack_match_found = true
       break
     end
   end
